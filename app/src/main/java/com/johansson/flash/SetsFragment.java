@@ -9,13 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.johansson.flash.list.MainListFavorites;
-import com.johansson.flash.list.MainListItem;
-import com.johansson.flash.list.MainListSeparator;
-import com.johansson.flash.list.MainListSet;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.johansson.flash.setlist.MainListFavorites;
+import com.johansson.flash.setlist.MainListItem;
+import com.johansson.flash.setlist.MainListSeparator;
+import com.johansson.flash.setlist.MainListSet;
 
 /**
  * Created by chris on 2016-06-02.
@@ -23,7 +20,7 @@ import java.util.Arrays;
 public class SetsFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private SetAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     public SetsFragment() {}
@@ -51,9 +48,10 @@ public class SetsFragment extends Fragment {
         recyclerView.setHasFixedSize(true); //TODO Does this recycler view has a fixed size?
         layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
-        MainListItem[] items = new MainListItem[] {
+        /*MainListItem[] items = new MainListItem[] {
                 new MainListSeparator("Favorites"),
                 new MainListFavorites(),
+                new MainListSeparator("Recently used"),
                 new MainListSeparator("All"),
                 new MainListSet("Exam 1", "Linear Algebra II", true),
                 new MainListSet("Exam 2", "Linear Algebra II", true),
@@ -62,12 +60,13 @@ public class SetsFragment extends Fragment {
                 new MainListSet("Homework 2", "Linear Algebra I", true),
                 new MainListSet("Homework 3", "Linear Algebra I", false),
                 new MainListSet("Exam 2", "Calculus", false),
-                new MainListSet("Exercise 1", "Advanced Computer Architecture", true),
+                new MainListSet("Exercise 1", "Advanced Computer Architecture", false),
                 new MainListSet("Exercise 2", "Advanced Computer Architecture", false),
                 new MainListSet("Exercise 3", "Advanced Computer Architecture", false),
-                new MainListSet("Exercise 4", "Advanced Computer Architecture", true)
-        };
-        adapter = new SetAdapter(items);
+                new MainListSet("Exercise 4", "Advanced Computer Architecture", false)
+        };*/
+        adapter = new SetAdapter(TestData.items);
+        adapter.setSetClickListener(new SetClickListener(getContext()));
         recyclerView.setAdapter(adapter);
     }
 }

@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.johansson.flash.list.MainListItem;
-import com.johansson.flash.list.MainListSeparator;
-import com.johansson.flash.list.MainListSet;
+import com.johansson.flash.setlist.MainListItem;
+import com.johansson.flash.setlist.MainListSeparator;
+import com.johansson.flash.setlist.MainListSet;
 
 
 public class StartFragment extends Fragment {
@@ -48,9 +48,6 @@ public class StartFragment extends Fragment {
         }*/
     }
 
-    public void test() {
-        int x = 3 + 3;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.johansson.flash.SetActivity"
+    tools:showIn="@layout/activity_set">
+
+
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_sub_bar_height">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryLight"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="32dp"
+            android:paddingTop="16dp"
+            android:card_text="Subtitle"
+            android:id="@+id/txtSubtitle" />
+        </FrameLayout>-->
+       <include
+           layout="@layout/content_set_header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/prefTitle"
+                android:text="@string/set_pref_title_random" />
+
+            <Switch
+                android:id="@+id/switch_shuffle"
+                style="@style/prefSummary"
+                android:checked="true"
+                android:text="@string/set_pref_summary_random" />
+
+            <TextView
+                style="@style/prefTitle"
+                android:text="@string/set_pref_title_drop_cards" />
+
+            <Switch
+                android:id="@+id/switch_drop"
+                style="@style/prefSummary"
+                android:text="@string/set_pref_summary_drop_cards" />
+
+            <TextView
+                style="@style/prefTitle"
+                android:text="@string/set_pref_title_side"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/prefSummary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/set_pref_summary_side"/>
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8dp">
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/setSide"></Spinner>
+                </FrameLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <!--<android.support.v4.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+        <!--<FrameLayout android:id="@+id/fragmentSetPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></FrameLayout>-->
+        <!--</android.support.v4.widget.NestedScrollView>-->
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

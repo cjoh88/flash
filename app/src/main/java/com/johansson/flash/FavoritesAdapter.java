@@ -4,12 +4,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.johansson.flash.list.MainListItem;
-import com.johansson.flash.list.MainListSeparator;
-import com.johansson.flash.list.MainListSet;
+import com.johansson.flash.setlist.MainListItem;
+import com.johansson.flash.setlist.MainListSet;
 
 import java.util.ArrayList;
 
@@ -19,16 +17,15 @@ import java.util.ArrayList;
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
 
     private ArrayList<MainListSet> items;
+    private SetClickListener setClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView subtitle;
-        public ImageView favorite;
         public ViewHolder(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.txtTitle);
             subtitle = (TextView) v.findViewById(R.id.txtSubtitle);
-            favorite = (ImageView) v.findViewById(R.id.imgFavorite);
         }
     }
 
@@ -46,13 +43,9 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         MainListSet item = items.get(position);
         holder.title.setText(item.getTitle());
         holder.subtitle.setText(item.getSubtitle());
-        if(item.isFavorite()) {
-            holder.favorite.setImageResource(R.drawable.ic_favorite_default_24dp);
+        if(setClickListener != null) {
+            holder.itemView.setOnClickListener(setClickListener);
         }
-        else {
-            holder.favorite.setImageResource(R.drawable.ic_favorite_border_default_24dp);
-        }
-        holder.favorite.setOnClickListener(new FavoriteClickListener(item));
     }
 
     @Override
@@ -63,5 +56,9 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    public void setSetClickListener(SetClickListener listener) {
+        this.setClickListener = listener;
     }
 }

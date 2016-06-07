@@ -5,12 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.johansson.flash.list.MainListItem;
-import com.johansson.flash.list.MainListSeparator;
-import com.johansson.flash.list.MainListSet;
+import com.johansson.flash.setlist.MainListItem;
+import com.johansson.flash.setlist.MainListSeparator;
+import com.johansson.flash.setlist.MainListSet;
 
 import java.util.ArrayList;
 
@@ -24,15 +23,15 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LinearLayoutManager layoutManager;
     private FavoritesAdapter favoritesAdapter;
 
+    private SetClickListener setClickListener;
+
     public static class SetViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView subtitle;
-        public ImageView favorite;
         public SetViewHolder(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.txtTitle);
             subtitle = (TextView) v.findViewById(R.id.txtSubtitle);
-            favorite = (ImageView) v.findViewById(R.id.imgFavorite);
         }
     }
 
@@ -90,13 +89,9 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private void bindSetHolder(SetViewHolder holder, MainListSet item) {
         holder.title.setText(item.getTitle());
         holder.subtitle.setText(item.getSubtitle());
-        if(item.isFavorite()) {
-            holder.favorite.setImageResource(R.drawable.ic_favorite_default_24dp);
+        if(setClickListener != null) {
+            holder.itemView.setOnClickListener(setClickListener);
         }
-        else {
-            holder.favorite.setImageResource(R.drawable.ic_favorite_border_default_24dp);
-        }
-        holder.favorite.setOnClickListener(new FavoriteClickListener(item));
     }
 
     private void bindSeparatorHolder(SeparatorViewHolder holder, MainListSeparator item) {
@@ -108,6 +103,7 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         layoutManager = new LinearLayoutManager(holder.recyclerView.getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         favoritesAdapter = new FavoritesAdapter(items);
+        favoritesAdapter.setSetClickListener(setClickListener);
         holder.recyclerView.setLayoutManager(layoutManager);
         holder.recyclerView.setAdapter(favoritesAdapter);
     }
@@ -133,5 +129,9 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         return items.length;
+    }
+
+    public void setSetClickListener(SetClickListener listener) {
+        this.setClickListener = listener;
     }
 }

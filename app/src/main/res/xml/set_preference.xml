@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/set_pref_category_main"
+        android:key="main_category">
+
+        <SwitchPreferenceCompat
+            android:key="main_random"
+            android:title="@string/set_pref_title_random"
+            android:summary="@string/set_pref_summary_random"
+            android:defaultValue="true"></SwitchPreferenceCompat>
+        <SwitchPreferenceCompat
+            android:key="main_shuffle"
+            android:title="@string/set_pref_title_drop_cards"
+            android:summary="@string/set_pref_summary_drop_cards"
+            android:defaultValue="false"></SwitchPreferenceCompat>
+
+        <ListPreference
+            android:key="main_list"
+            android:title="test"
+            android:summary="testtest"
+            android:entries="@array/updateInterval"
+            android:entryValues="@array/updateIntervalValues"
+            android:defaultValue="1000"></ListPreference>
+
+        <EditTextPreference
+            android:key="main_notification"
+            android:title="Notification"
+            android:summary="Add notification"
+            android:defaultValue="5"
+            android:digits="true"></EditTextPreference>
+
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        android:title="Category1"
+        android:key="first_category">
+
+        <CheckBoxPreference
+            android:key="perform_updates"
+            android:summary="Enable or disable data updates"
+            android:title="Enable updates"
+            android:defaultValue="true"
+            />
+
+        <ListPreference
+            android:key="updates_interval"
+            android:title="Updates interval"
+            android:summary="Define how often updates will be performed"
+            android:defaultValue="1000"
+            android:entries="@array/updateInterval"
+            android:entryValues="@array/updateIntervalValues"
+            android:dependency="perform_updates"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Second Category"
+        android:key="second_category">
+
+        <EditTextPreference
+            android:key="welcome_message"
+            android:title="Welcome Message"
+            android:summary="Define the Welcome message to be shown"
+            android:dialogTitle="Welcome Message"
+            android:dialogMessage="Provide a message"
+            android:defaultValue="Default welcome message" />
+        <EditTextPreference
+            android:key="welcome_message"
+            android:title="Welcome Message"
+            android:summary="Define the Welcome message to be shown"
+            android:dialogTitle="Welcome Message"
+            android:dialogMessage="Provide a message"
+            android:defaultValue="Default welcome message" />
+        <EditTextPreference
+            android:key="welcome_message"
+            android:title="Welcome Message"
+            android:summary="Define the Welcome message to be shown"
+            android:dialogTitle="Welcome Message"
+            android:dialogMessage="Provide a message"
+            android:defaultValue="Default welcome message" />
+        <EditTextPreference
+            android:key="welcome_message"
+            android:title="Welcome Message"
+            android:summary="Define the Welcome message to be shown"
+            android:dialogTitle="Welcome Message"
+            android:dialogMessage="Provide a message"
+            android:defaultValue="Default welcome message" />
+        <EditTextPreference
+            android:key="welcome_message"
+            android:title="Welcome Message"
+            android:summary="Define the Welcome message to be shown"
+            android:dialogTitle="Welcome Message"
+            android:dialogMessage="Provide a message"
+            android:defaultValue="Default welcome message" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
