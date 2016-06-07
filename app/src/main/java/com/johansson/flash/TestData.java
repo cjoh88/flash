@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class TestData {
 
-    public static MainListItem[] items = new MainListItem[] {
+    /*public static MainListItem[] items = new MainListItem[] {
             new MainListSeparator("Favorites"),
             new MainListFavorites(),
             new MainListSeparator("Recently used"),
@@ -31,7 +31,7 @@ public class TestData {
             new MainListSet("Exercise 2", "Advanced Computer Architecture", false),
             new MainListSet("Exercise 3", "Advanced Computer Architecture", false),
             new MainListSet("Exercise 4", "Advanced Computer Architecture", false)
-    };
+    };*/
 
     private static CardSide[] cardFronts = new CardSide[] {
             new CardText("Front 1"),

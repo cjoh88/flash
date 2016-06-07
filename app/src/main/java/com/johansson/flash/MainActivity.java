@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
             }
             //StartFragment startFragment = new StartFragment();
             //getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, startFragment).commit();
-            SetsFragment setsFragment = new SetsFragment();
+            SetListFragment setsFragment = new SetListFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, setsFragment).commit();
         }
 

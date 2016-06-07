@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.johansson.flash.data.set.Set;
+import com.johansson.flash.mainlist.MainListFavorites;
 import com.johansson.flash.mainlist.MainListItem;
 import com.johansson.flash.mainlist.MainListSeparator;
 import com.johansson.flash.mainlist.MainListSet;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
  */
 public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private MainListItem[] items;
+    private ArrayList<MainListItem> items;
     private ArrayList<MainListSet> favorites;
     private LinearLayoutManager layoutManager;
     private FavoritesAdapter favoritesAdapter;
@@ -51,8 +53,19 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public SetAdapter(MainListItem[] items) {
-        this.items = items;
+    public SetAdapter(ArrayList<Set> items) {
+        this.items = new ArrayList<>();
+        this.favorites = new ArrayList<>();
+        this.items.add(new MainListSeparator("Favorites")); //TODO: replace "Favorites with string resource"
+        this.items.add(new MainListFavorites());
+        //TODO add Recently used separator
+        for(Set set : items) {
+            this.items.add(new MainListSet(set));
+            if(set.isFavorite()) {
+                favorites.add(new MainListSet(set));
+            }
+        }
+        //this.items = items;
         //this.favorites = getFavorites();
     }
 
@@ -72,12 +85,12 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        switch (items[position].getItemType()) {
+        switch (items.get(position).getItemType()) {
             case MainListItem.SET_ITEM:
-                bindSetHolder((SetViewHolder) holder, (MainListSet) items[position]);
+                bindSetHolder((SetViewHolder) holder, (MainListSet) items.get(position));
                 break;
             case MainListItem.SET_SEPARATOR:
-                bindSeparatorHolder((SeparatorViewHolder) holder, (MainListSeparator) items[position]);
+                bindSeparatorHolder((SeparatorViewHolder) holder, (MainListSeparator) items.get(position));
                 break;
             case MainListItem.SET_FAVORITES:
                 favorites = getFavorites();
@@ -123,12 +136,12 @@ public class SetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        return items[position].getItemType();
+        return items.get(position).getItemType();
     }
 
     @Override
     public int getItemCount() {
-        return items.length;
+        return items.size();
     }
 
     public void setSetClickListener(SetClickListener listener) {

@@ -18,6 +18,16 @@ public class DatabaseHandler {
         return sets;
     }
 
+    public ArrayList<Set> getFavoriteSets() {
+        ArrayList<Set> s = new ArrayList<>();
+        for(Set set : sets) {
+            if(set.isFavorite()) {
+                s.add(set);
+            }
+        }
+        return s;
+    }
+
     public Set getSet(int id) {
         return sets.get(id);
     }
@@ -77,7 +87,7 @@ public class DatabaseHandler {
 
 
 
-    
+
     private static ArrayList<Set> createSets() {
         ArrayList<Set> sets = new ArrayList<>();
         sets.add(new Set(0, "English Animals", "Swedish to english animals", true));
