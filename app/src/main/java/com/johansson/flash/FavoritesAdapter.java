@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.johansson.flash.setlist.MainListItem;
-import com.johansson.flash.setlist.MainListSet;
+import com.johansson.flash.mainlist.MainListItem;
+import com.johansson.flash.mainlist.MainListSet;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.johansson.flash.setlist;
+package com.johansson.flash.mainlist;
 
 /**
  * Created by chris on 2016-06-01.
@@ -33,6 +33,6 @@ public class MainListSet implements MainListItem{
 
     @Override
     public int getItemType() {
-        return MainListItem.SET_ITEM;
+        return SET_ITEM;
     }
 }

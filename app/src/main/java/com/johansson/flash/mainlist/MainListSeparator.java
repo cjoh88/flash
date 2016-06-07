@@ -1,4 +1,4 @@
-package com.johansson.flash.setlist;
+package com.johansson.flash.mainlist;
 
 
 /**
@@ -19,6 +19,6 @@ public class MainListSeparator implements MainListItem {
 
     @Override
     public int getItemType() {
-        return MainListItem.SET_SEPARATOR;
+        return SET_SEPARATOR;
     }
 }

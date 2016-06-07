@@ -9,11 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.johansson.flash.setlist.MainListFavorites;
-import com.johansson.flash.setlist.MainListItem;
-import com.johansson.flash.setlist.MainListSeparator;
-import com.johansson.flash.setlist.MainListSet;
-
 /**
  * Created by chris on 2016-06-02.
  */

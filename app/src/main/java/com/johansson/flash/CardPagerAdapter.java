@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.johansson.flash.cardadapter.Card;
+import com.johansson.flash.data.card.Card;
 
 import java.util.ArrayList;
 

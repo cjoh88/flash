@@ -1,4 +1,4 @@
-package com.johansson.flash.setlist;
+package com.johansson.flash.mainlist;
 
 import java.util.ArrayList;
 

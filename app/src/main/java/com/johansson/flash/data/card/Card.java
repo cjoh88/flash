@@ -1,4 +1,4 @@
-package com.johansson.flash.cardadapter;
+package com.johansson.flash.data.card;
 
 /**
  * Created by chris on 2016-06-07.

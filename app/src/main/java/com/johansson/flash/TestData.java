@@ -1,12 +1,12 @@
 package com.johansson.flash;
 
-import com.johansson.flash.cardadapter.Card;
-import com.johansson.flash.cardadapter.CardSide;
-import com.johansson.flash.cardadapter.CardText;
-import com.johansson.flash.setlist.MainListFavorites;
-import com.johansson.flash.setlist.MainListItem;
-import com.johansson.flash.setlist.MainListSeparator;
-import com.johansson.flash.setlist.MainListSet;
+import com.johansson.flash.data.card.Card;
+import com.johansson.flash.data.card.CardSide;
+import com.johansson.flash.data.card.CardText;
+import com.johansson.flash.mainlist.MainListFavorites;
+import com.johansson.flash.mainlist.MainListItem;
+import com.johansson.flash.mainlist.MainListSeparator;
+import com.johansson.flash.mainlist.MainListSet;
 
 import java.util.ArrayList;
 
