@@ -1,5 +1,6 @@
 package com.johansson.flash.data.card;
 
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class CardText implements CardSide {
         //RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) txt.getLayoutParams();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+        txt.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 72);
         txt.setLayoutParams(layoutParams);
         relativeLayout.addView(txt);
     }

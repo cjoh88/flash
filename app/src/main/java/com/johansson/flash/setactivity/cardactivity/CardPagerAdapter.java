@@ -1,4 +1,4 @@
-package com.johansson.flash;
+package com.johansson.flash.setactivity.cardactivity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class CardPagerAdapter extends FragmentStatePagerAdapter {
 
-    private ArrayList<Card> cards;
     private FragmentManager fm;
+    private ArrayList<Card> cards;
 
     public CardPagerAdapter(FragmentManager fm, ArrayList<Card> cards) {
         super(fm);
@@ -24,13 +24,8 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        CardFragment item;
-        //if(showFront) {
-            item = CardFragment.newInstance(position);
-        //}
-        //else {
-            //item = CardFragment.newInstance(getCount()-position-1);
-        //}
+        //TODO: Create cards here in CardPagerAdapter
+        CardFragment item = CardFragment.newInstance(position, false);    //TODO: replace boolean flipped argument with correct value
         return item;
     }
 

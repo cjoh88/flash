@@ -1,4 +1,4 @@
-package com.johansson.flash;
+package com.johansson.flash.setactivity.cardactivity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,12 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.johansson.flash.FlipAnimation;
+import com.johansson.flash.R;
+import com.johansson.flash.TestData;
+import com.johansson.flash.data.DatabaseHandler;
+import com.johansson.flash.data.card.Card;
+
 
 public class CardFragment extends Fragment {
 
     private static final String ARG_ID = "cardId";
+    private static final String ARG_FLIPPED = "flipped";
 
     private int card_id = 0;
+    private boolean flipped = true;
 
     private RelativeLayout front;
     private RelativeLayout back;
@@ -22,10 +30,11 @@ public class CardFragment extends Fragment {
     }
 
 
-    public static CardFragment newInstance(int card) {
+    public static CardFragment newInstance(int card, boolean front) {
         CardFragment fragment = new CardFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_ID, card);
+        args.putBoolean(ARG_FLIPPED, front);
         fragment.setArguments(args);
         return fragment;
     }
@@ -35,6 +44,7 @@ public class CardFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             card_id = getArguments().getInt(ARG_ID);
+            flipped = getArguments().getBoolean(ARG_FLIPPED);
         }
     }
 
@@ -44,8 +54,15 @@ public class CardFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_card, container, false);
         front = (RelativeLayout) rootView.findViewById(R.id.card_front);
         back = (RelativeLayout) rootView.findViewById(R.id.card_back);
-        TestData.cards.get(card_id).getFront().createView(front);
-        TestData.cards.get(card_id).getBack().createView(back);
+        DatabaseHandler db = new DatabaseHandler();
+        Card card = db.getCard(card_id);
+        if(flipped) {
+            card.reverse();
+        }
+        card.getFront().createView(front);
+        card.getBack().createView(back);
+        //TestData.cards.get(card_id).getFront().createView(front);
+        //TestData.cards.get(card_id).getBack().createView(back);
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

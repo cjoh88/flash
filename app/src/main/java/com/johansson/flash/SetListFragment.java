@@ -17,7 +17,7 @@ import com.johansson.flash.data.DatabaseHandler;
 public class SetListFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private SetAdapter adapter;
+    private SetListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     public SetListFragment() {}
@@ -63,8 +63,8 @@ public class SetListFragment extends Fragment {
                 new MainListSet("Exercise 4", "Advanced Computer Architecture", false)
         };*/
         DatabaseHandler db = new DatabaseHandler();
-        adapter = new SetAdapter(db.getAllSets());
-        adapter.setSetClickListener(new SetClickListener(getContext()));
+        adapter = new SetListAdapter(db.getAllSets());
+        adapter.setSetListClickListener(new SetListClickListener(getContext()));
         recyclerView.setAdapter(adapter);
     }
 }

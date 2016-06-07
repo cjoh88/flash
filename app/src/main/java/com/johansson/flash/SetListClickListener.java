@@ -4,14 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import com.johansson.flash.setactivity.SetActivity;
+
 /**
  * Created by chris on 2016-06-03.
  */
-public class SetClickListener implements View.OnClickListener {
+public class SetListClickListener implements View.OnClickListener {
 
     private Context context;
 
-    public SetClickListener(Context context) {
+    public SetListClickListener(Context context) {
         this.context = context;
     }
 

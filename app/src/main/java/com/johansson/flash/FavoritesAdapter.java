@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
 
     private ArrayList<MainListSet> items;
-    private SetClickListener setClickListener;
+    private SetListClickListener setListClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
@@ -43,8 +43,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         MainListSet item = items.get(position);
         holder.title.setText(item.getTitle());
         holder.subtitle.setText(item.getSubtitle());
-        if(setClickListener != null) {
-            holder.itemView.setOnClickListener(setClickListener);
+        if(setListClickListener != null) {
+            holder.itemView.setOnClickListener(setListClickListener);
         }
     }
 
@@ -58,7 +58,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         return items.size();
     }
 
-    public void setSetClickListener(SetClickListener listener) {
-        this.setClickListener = listener;
+    public void setSetListClickListener(SetListClickListener listener) {
+        this.setListClickListener = listener;
     }
 }

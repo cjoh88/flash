@@ -1,15 +1,17 @@
-package com.johansson.flash;
+package com.johansson.flash.setactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.FrameLayout;
+
+import com.johansson.flash.R;
+import com.johansson.flash.data.card.Card;
+import com.johansson.flash.setactivity.cardactivity.CardActivity;
 
 public class SetActivity extends AppCompatActivity {
 
@@ -53,6 +55,12 @@ public class SetActivity extends AppCompatActivity {
 
     public void buttonStart(View view) {
         Intent intent = new Intent(this, CardActivity.class);
+        Bundle b = new Bundle();
+        //TODO: Read values
+        b.putBoolean(CardActivity.ARG_SHUFFLE, true);
+        b.putBoolean(CardActivity.ARG_DROP_CARDS, false);
+        b.putInt(CardActivity.ARG_SET_ID, 0);
+        b.putInt(CardActivity.ARG_SIDE, CardActivity.FRONT);
         startActivity(intent);
     }
 }
